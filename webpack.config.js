@@ -63,6 +63,13 @@ module.exports = {
                     }
 
                 ]
+            },
+            {
+                test: /\.(png|jpg)$/,
+                use: ['file-loader?name=images/[name]-[hash].[ext]']
+            }, {
+                test: /\.(htm|html)$/i,
+                use: ['html-withimg-loader']
             }
         ]
     },
