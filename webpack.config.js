@@ -1,6 +1,6 @@
 var path = require('path');
 var fs = require('fs');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');//无法注入语法inline-html-withimg-loader解决bug
 var webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
@@ -67,7 +67,8 @@ module.exports = {
             {
                 test: /\.(png|jpg)$/,
                 use: ['file-loader?name=img/[name]-[hash].[ext]']
-            }, {
+            }, 
+            {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
             }
