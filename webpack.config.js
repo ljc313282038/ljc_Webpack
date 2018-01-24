@@ -66,7 +66,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)$/,
-                use: ['file-loader?name=images/[name]-[hash].[ext]']
+                use: ['file-loader?name=img/[name]-[hash].[ext]']
             }, {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
