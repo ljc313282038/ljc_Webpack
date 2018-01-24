@@ -1,0 +1,8 @@
+body {
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+body {
+  color: #fff;
+  font-size: 20px; }
