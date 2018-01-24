@@ -13,6 +13,7 @@ module.exports = {
         contentBase: './',
         port: 8080
     },
+    devtool: "cheap-module-inline-source-map", // any "source-map"-like devtool is possible
     entry: {
         home: "./src/index.js",
         page0: "./src/page_1.js",
@@ -34,14 +35,33 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader',
+                test: /\.(scss|sass|css)$/,
+                //这里注意顺序开发环境方便调试css、scss
+                use: [{
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
-                        plugins: [require('autoprefixer')()]
+                            plugins: [require('autoprefixer')()],
                         }
                     }
+
                 ]
             }
         ]

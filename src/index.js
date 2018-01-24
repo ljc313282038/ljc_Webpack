@@ -1,5 +1,6 @@
 
 import './css/main.css';
+import './css/main.scss';
 
 console.log("indexhome");
 var x=(x)=>{

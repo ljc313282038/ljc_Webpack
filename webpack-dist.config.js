@@ -5,6 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
     context: __dirname,
+    devtool: 'cheap-module-eval-source-map', //开发环境
     entry: {
         home: "./src/index.js",
         page0: "./src/page_1.js",
@@ -35,8 +36,11 @@ module.exports = {
                             options: {
                                 plugins: [require('autoprefixer')()]
                             }
+                        },
+                        {
+                            loader: "sass-loader",
                         }
-                    ],
+                    ]
                 }),
             },
         ]
