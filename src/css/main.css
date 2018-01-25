@@ -1,4 +1,23 @@
 body{
-	background-color: #ccc;
-	display: flex;
+	background-color: #464444;
+}
+.title{
+	font-size: 18px;
+}
+.example{
+	width: 400px;
+}
+.example img{
+	width: 100%;
+}
+.example2{
+	background-image:url(../img/beijin.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 200px;
+	background-color: #fff;
+}
+.iconfont{
+	font-size: 40px;
 }

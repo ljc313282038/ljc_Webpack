@@ -19,9 +19,9 @@ module.exports = {
         page0: "./src/page_1.js",
     },
     output: {
-        filename: "js/[name]-[chunkhash].js",
+        filename: "js/[name]-[hash].js",
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: ''
     },
     module: {
         rules: [{
@@ -43,6 +43,11 @@ module.exports = {
                     loader: 'expose-loader',
                     options: '$'
                 }]
+            },
+            {  
+                test:/\.(woff|svg|eot|ttf)\??.*$/,  
+                //url-loader 会直接把字体打包到js
+                use: [ "url-loader"]  
             },
             {
                 test: /\.(scss|sass|css)$/,

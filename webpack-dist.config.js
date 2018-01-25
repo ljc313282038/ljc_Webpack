@@ -39,6 +39,11 @@ module.exports = {
                 }]
             },
             {
+                test: /\.(woff|svg|eot|ttf)\??.*$/,
+                //url-loader 会直接把字体打包到js
+                use: ["url-loader"]
+            },
+            {
                 test: /\.(scss|sass|css)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
@@ -46,7 +51,7 @@ module.exports = {
                         {
                             loader: 'postcss-loader',
                             options: {
-                                plugins: [require('autoprefixer')()]
+                                plugins: [require('autoprefixer')()],
                             }
                         },
                         {
@@ -56,8 +61,15 @@ module.exports = {
                 }),
             },
             {
-                 test: /\.(png|jpg|gif)$/,
-                 use: ['file-loader?name=img/[name]-[hash].[ext]']
+                test: /\.(png|jpg|gif)$/,
+                // 生产模式下要对css中抽离的模块但对添加publicPath
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]',
+                        publicPath: '../'
+                    }
+                }]
             }, {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
@@ -70,14 +82,14 @@ module.exports = {
             title: '罗锦春的webpack脚手架dist',
             template: path.resolve(__dirname, './src/index.html'),
             filename: path.resolve(__dirname, './dist/index.html'),
-            chunks: ['home','commons']
+            chunks: ['home', 'commons']
         }),
         new HtmlWebpackPlugin({
             // favicon: './src/img/www.ico.la_3ff4b3854761361d57afe2b3d510cfb4_64X64.ico',
             title: '罗锦春的webpack脚手架2dist',
             template: path.resolve(__dirname, './src/page_1.html'),
             filename: path.resolve(__dirname, './dist/page_1.html'),
-            chunks: ['page_1','commons']
+            chunks: ['page_1', 'commons']
         }),
 
         new ExtractTextPlugin({
