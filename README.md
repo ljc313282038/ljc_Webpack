@@ -4,7 +4,6 @@
   webpack
   
       dist
-   
       src
    
        img
