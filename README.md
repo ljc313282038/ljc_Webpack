@@ -5,9 +5,9 @@
   
 dist<br/>
 src<br/>
-&nbsp&nbspimg<br/>       
-&nbsp&nbspjs<br/>       
-&nbsp&nbspcss<br/>
+  img<br/>       
+  js<br/>       
+  css<br/>
 font<br/>
 index.html 首页html<br/>
 index.js 首页入口js<br/>
