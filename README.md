@@ -38,4 +38,10 @@
     "build": "webpack --progress --colors --config webpack-dist.config.js"
   },
 ```
+2.1. 在执行 npm run dev 映射到webpack.config.js 同时启动 webpack-dev-server 这个热更新插件（调试服务器）<br/>
+2.2. 在执行 npm run build 映射webpack-dist.config.js 执行打包是需要的插件并打包输出<br/>
+##### 注释： 
+##### 两个环境中最大的区别是路径的解析
+##### 请仔细对比求中差异
+##### 有事啊不懂 qq:313282038 
 
