@@ -1,8 +1,10 @@
-var path = require('path');
-var fs = require('fs');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
     context: __dirname,
     devtool: 'cheap-module-eval-source-map', //开发环境
@@ -27,6 +29,16 @@ module.exports = {
                 }
             },
             {
+                test: require.resolve('jquery'),
+                use: [{
+                    loader: 'expose-loader',
+                    options: 'jQuery'
+                }, {
+                    loader: 'expose-loader',
+                    options: '$'
+                }]
+            },
+            {
                 test: /\.(scss|sass|css)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
@@ -44,8 +56,8 @@ module.exports = {
                 }),
             },
             {
-                test: /\.(png|jpg)$/,
-                use: ['file-loader?name=img/[name]-[hash].[ext]']
+                 test: /\.(png|jpg|gif)$/,
+                 use: ['file-loader?name=img/[name]-[hash].[ext]']
             }, {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
@@ -58,19 +70,37 @@ module.exports = {
             title: '罗锦春的webpack脚手架dist',
             template: path.resolve(__dirname, './src/index.html'),
             filename: path.resolve(__dirname, './dist/index.html'),
-            chunks: ['home']
+            chunks: ['home','commons']
         }),
         new HtmlWebpackPlugin({
             // favicon: './src/img/www.ico.la_3ff4b3854761361d57afe2b3d510cfb4_64X64.ico',
             title: '罗锦春的webpack脚手架2dist',
             template: path.resolve(__dirname, './src/page_1.html'),
             filename: path.resolve(__dirname, './dist/page_1.html'),
-            chunks: ['page_1']
+            chunks: ['page_1','commons']
         }),
 
         new ExtractTextPlugin({
             filename: 'css/[name]-[hash].css',
             allChunks: true
+        }),
+        new UglifyJsPlugin({
+            test: /\.js($|\?)/i,
+            exclude: /\/node_modules/,
+            cache: true,
+            sourceMap: true,
+        }),
+        new CleanWebpackPlugin( //
+            ['./dist/js', './dist/css'], 　 //匹配删除的文件
+            {
+                root: __dirname, //根目录
+                verbose: true,
+                dry: false,
+                exclude: ['shared.js'] //要排除的项目
+            }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "commons",
+            minChunks: 3,
         }),
     ]
 }

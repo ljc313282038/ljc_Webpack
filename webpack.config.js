@@ -1,7 +1,7 @@
-var path = require('path');
-var fs = require('fs');
-var HtmlWebpackPlugin = require('html-webpack-plugin');//无法注入语法inline-html-withimg-loader解决bug
-var webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //无法注入语法inline-html-withimg-loader解决bug
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devServer: {
@@ -19,7 +19,7 @@ module.exports = {
         page0: "./src/page_1.js",
     },
     output: {
-        filename: "js/[name].js",
+        filename: "js/[name]-[chunkhash].js",
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
@@ -33,6 +33,16 @@ module.exports = {
                         presets: ['env']
                     }
                 }
+            },
+            {
+                test: require.resolve('jquery'),
+                use: [{
+                    loader: 'expose-loader',
+                    options: 'jQuery'
+                }, {
+                    loader: 'expose-loader',
+                    options: '$'
+                }]
             },
             {
                 test: /\.(scss|sass|css)$/,
@@ -65,9 +75,9 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|gif)$/,
                 use: ['file-loader?name=img/[name]-[hash].[ext]']
-            }, 
+            },
             {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
