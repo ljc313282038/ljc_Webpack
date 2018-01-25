@@ -4,11 +4,11 @@
  
 * dist<br/>
 * src<br/>
-&#8194;&#8194;-img<br/>
-&#8194;&#8194;-js<br/>
-&#8194;&#8194;-css<br/>
-&#8194;&#8194;-font<br/>
-index.html 首页html<br/>
+&#8194;&#8194;--img<br/>
+&#8194;&#8194;--js<br/>
+&#8194;&#8194;--css<br/>
+&#8194;&#8194;--font<br/>
+*index.html 首页html<br/>
 index.js 首页入口js<br/>
 page_1.index 其他页面html<br/>
 page_i.js 其他页面入口js<br/>
