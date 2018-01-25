@@ -30,7 +30,7 @@
 1.首先建立两个配置 <br/>
 &#8194;&#8194;webpack.config,js &#8194;&#8194;--开发环境<br/>
 &#8194;&#8194;webpack-dist.config,js &#8194;&#8194;--生产环境<br/><br/>
-2.在package.json 中修改启动是后的映射如下
+2.在package.json 中修改启动后的映射如下
 ``` javaScirpt
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
