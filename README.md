@@ -8,12 +8,12 @@
 &#8194;&#8194;--js<br/>
 &#8194;&#8194;--css<br/>
 &#8194;&#8194;--font<br/>
-*index.html 首页html<br/>
-index.js 首页入口js<br/>
-page_1.index 其他页面html<br/>
-page_i.js 其他页面入口js<br/>
-package.json<br/>
-webpack-dist.config.js 生产环境配置<br/>
-webpack.config.js 开发环境配置<br/>
-README.md<br/>
+* index.html 首页html<br/>
+* index.js 首页入口js<br/>
+* page_1.index 其他页面html<br/>
+* page_i.js 其他页面入口js<br/>
+* package.json<br/>
+* webpack-dist.config.js 生产环境配置<br/>
+* webpack.config.js 开发环境配置<br/>
+* README.md<br/>
     
