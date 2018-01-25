@@ -27,7 +27,15 @@
 2.还有某些插件要在最后build 的时候才可以用到比如压缩 抽离公共模块 路径的处理，如果不分环境每次npm run dev 时候都会启动浪费时间<br/><br/>
 #### 如何根据不同的命令执行让webpack 识别我们是在打包还是开发？
 ##### 方法： 
-1.首先建立两个配置 <br/><br/>
-&#8194;&#8194;webpack.config,js &#8194;&#8194;--开发环境<br/><br/>
-&#8194;&#8194;webpack-dist.config,js &#8194;&#8194;--生产环境<br/>
+1.首先建立两个配置 <br/>
+&#8194;&#8194;webpack.config,js &#8194;&#8194;--开发环境<br/>
+&#8194;&#8194;webpack-dist.config,js &#8194;&#8194;--生产环境<br/><br/>
+2.在package.json 中修改启动是后的映射如下
+``` javaScirpt
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval-source-map --progress --colors --config webpack.config.js --hot --inline --content-base ./dist",
+    "build": "webpack --progress --colors --config webpack-dist.config.js"
+  },
+```
 
