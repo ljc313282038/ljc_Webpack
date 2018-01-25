@@ -3,7 +3,7 @@
 #### 先看目录结构
   webpack
   
-    ####dist
+    * dist *
    
     ####src
    
