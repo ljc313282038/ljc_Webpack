@@ -5,10 +5,10 @@
   
 dist<br/>
 src<br/>
-  img<br/>       
-  js<br/>       
-  css<br/>
-font<br/>
+ img<br/>       
+ js<br/>       
+ css<br/>
+ font<br/>
 index.html 首页html<br/>
 index.js 首页入口js<br/>
 page_1.index 其他页面html<br/>
