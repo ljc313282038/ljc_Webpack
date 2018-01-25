@@ -1,10 +1,16 @@
+/**
+ * webpach 多页打包脚手架
+ * author 罗锦春
+ * 20180125
+ * type 生产环境
+ */
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
+const webpack = require('webpack');//因为用到自带的压缩插件必须在开始的时候引入自身
 module.exports = {
     context: __dirname,
     devtool: 'cheap-module-eval-source-map', //开发环境

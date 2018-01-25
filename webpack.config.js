@@ -1,3 +1,9 @@
+/**
+ * webpach 多页打包脚手架
+ * author 罗锦春
+ * 20180125
+ * type 开发环境
+ */
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //无法注入语法inline-html-withimg-loader解决bug
