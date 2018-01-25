@@ -15,8 +15,8 @@
 &#8194;&#8194;--page_1.html<br/>
 &#8194;&#8194;--page_1.js<br/>
 &#8194;&#8194;--font<br/><br/>
-* package.json<br/><br/>
-* webpack-dist.config.js &#8194;&#8194;生产环境配置<br/><br/>
-* webpack.config.js &#8194;&#8194;开发环境配置<br/><br/>
+* package.json<br/>
+* webpack-dist.config.js &#8194;&#8194;生产环境配置<br/>
+* webpack.config.js &#8194;&#8194;开发环境配置<br/>
 * README.md<br/><br/>
     
